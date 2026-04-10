@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Daniel Botsch</title><meta name="description" content="Personal portfolio about intentional living, systems, creativity and human-centered problem solving."><meta property="og:title" content="Daniel Botsch"><meta property="og:description" content="Personal portfolio about intentional living, systems, creativity and human-centered problem solving."><meta property="og:type" content="website"><meta property="og:url" content="https://deinusername.github.io/dein-repo"><link rel="stylesheet" href="/_astro/about.7D2Nweqv.css"></head> <body> <header class="site-header"> <div class="container site-header-inner"> <a href="/" class="site-brand interactive-subtle">
+Daniel Botsch
+</a> <nav class="desktop-nav"> <a href="/" class="link is-active" aria-current="page"> Home </a><a href="/about" class="link muted"> About </a><a href="/journey" class="link muted"> Journey </a><a href="/projects" class="link muted"> Projects </a><a href="/#contact" class="link muted"> Contact </a> </nav> <button id="mobile-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu" class="mobile-menu-button interactive"> <span class="sr-only">Open menu</span> <span class="flex h-5 w-5 flex-col items-center justify-center gap-[3px]"> <span class="menu-line block h-[1.5px] w-4 rounded-full bg-white transition-all duration-300"></span> <span class="menu-line block h-[1.5px] w-4 rounded-full bg-white transition-all duration-300"></span> <span class="menu-line block h-[1.5px] w-4 rounded-full bg-white transition-all duration-300"></span> </span> </button> </div> <div id="mobile-menu" class="mobile-menu-panel md:hidden"> <nav class="container mobile-menu-nav"> <a href="/" class="mobile-nav-link is-active" aria-current="page"> Home </a><a href="/about" class="mobile-nav-link "> About </a><a href="/journey" class="mobile-nav-link "> Journey </a><a href="/projects" class="mobile-nav-link "> Projects </a><a href="/#contact" class="mobile-nav-link "> Contact </a> </nav> </div> </header> <script type="module">const t=document.getElementById("mobile-menu-button"),s=document.getElementById("mobile-menu");if(t&&s){const e=t.querySelectorAll(".menu-line"),a=()=>{t.setAttribute("aria-expanded","false"),s.classList.remove("is-open"),e[0]?.classList.remove("translate-y-[4.5px]","rotate-45"),e[1]?.classList.remove("opacity-0"),e[2]?.classList.remove("-translate-y-[4.5px]","-rotate-45")},i=()=>{t.setAttribute("aria-expanded","true"),s.classList.add("is-open"),e[0]?.classList.add("translate-y-[4.5px]","rotate-45"),e[1]?.classList.add("opacity-0"),e[2]?.classList.add("-translate-y-[4.5px]","-rotate-45")};t.addEventListener("click",()=>{t.getAttribute("aria-expanded")==="true"?a():i()}),s.querySelectorAll("a").forEach(n=>{n.addEventListener("click",a)}),window.addEventListener("resize",()=>{window.innerWidth>=768&&a()})}</script> <main class="site-main">  <section class="container grid gap-10 page-section md:grid-cols-[1.2fr_0.8fr] md:items-center"> <div> <p class="kicker">Builder · Systems Thinker · Problem Solver</p> <h1 class="page-title mt-4 max-w-3xl"> Building a life with intention - through systems, creativity and human understanding. </h1> <p class="muted body-lg mt-6 max-w-2xl"> I’m a builder, systems thinker and problem solver creating projects at the intersection of technology, human behavior and intentional living. </p> <div class="mt-8 flex flex-wrap gap-4"> <a href="#contact" class="button button-primary"> Let’s connect </a> <a href="/projects" class="button button-secondary"> View projects </a> </div> </div> <div class="surface media-frame"> <img src="/images/profile/portrait.jpg" alt="Portrait of Daniel Botsch" class="hero-media"> </div> </section> <section class="container page-section-tight md:page-section-tight"> <div class="surface card-lg flex min-h-32 items-center"> <div> <p class="kicker">Mindset</p> <p class="mt-3 text-2xl font-medium tracking-tight md:text-4xl">
+It’s all about
+<span class="ticker-highlight"> <span id="ticker-word"></span><span class="ticker-cursor">|</span> </span> </p> </div> </div> </section> <script>(function(){const words = "[\"communication\",\"discipline\",\"listening\",\"clarity\",\"growth\",\"building\",\"intention\",\"becoming\"]";
+
+  const values = JSON.parse(words);
+  const target = document.getElementById("ticker-word");
+
+  if (target && Array.isArray(values) && values.length > 0) {
+    const TYPE_SPEED = 70;
+    const DELETE_SPEED = 40;
+    const PAUSE_AFTER_TYPING = 1400;
+    const PAUSE_AFTER_DELETING = 450;
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isRunning = false;
+
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    async function startTypingTicker() {
+      if (isRunning) return;
+      isRunning = true;
+
+      while (true) {
+        const currentWord = values[wordIndex];
+
+        if (!isDeleting) {
+          charIndex += 1;
+          target.textContent = currentWord.slice(0, charIndex);
+
+          if (charIndex === currentWord.length) {
+            isDeleting = true;
+            await sleep(PAUSE_AFTER_TYPING);
+          } else {
+            await sleep(TYPE_SPEED);
+          }
+        } else {
+          charIndex -= 1;
+          target.textContent = currentWord.slice(0, charIndex);
+
+          if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % values.length;
+            await sleep(PAUSE_AFTER_DELETING);
+          } else {
+            await sleep(DELETE_SPEED);
+          }
+        }
+      }
+    }
+
+    startTypingTicker();
+  }
+})();</script> <section class="container page-section-tight"> <div class="section-shell surface card-lg"> <div class="section-header"> <div class="min-w-0"> <p class="kicker">Featured Projects</p> <h2 class="section-title mt-3">
+Projects that reflect the path
+</h2> <p class="muted mt-4 max-w-2xl body-md">
+Selected projects that connect systems thinking, creativity and human-centered problem solving.
+</p> </div> <a href="/projects" class="link muted text-sm md:shrink-0">
+View all
+</a> </div> <div class="card-grid cols-3 mt-8"> <a href="/projects/van" class="content-card surface interactive card block h-full"> <div class="content-card-inner"> <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"> <h3 class="min-w-0 text-lg font-medium text-white"> Van </h3> <span class="pill pill-mono sm:shrink-0"> in-progress </span> </div> <p class="content-card-body muted text-sm leading-7"> Converting an Opel Movano transporter into a self-sufficient van focused on minimalism, system design and long-term usability. </p> <div class="content-card-footer"> <span class="text-xs uppercase tracking-wide text-[var(--accent)]"> living </span> <span class="link text-sm text-white/80">
+View project
+</span> </div> </div> </a><a href="/projects/music" class="content-card surface interactive card block h-full"> <div class="content-card-inner"> <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"> <h3 class="min-w-0 text-lg font-medium text-white"> Music </h3> <span class="pill pill-mono sm:shrink-0"> in-progress </span> </div> <p class="content-card-body muted text-sm leading-7"> I create music that turns emotion into atmosphere people can feel. </p> <div class="content-card-footer"> <span class="text-xs uppercase tracking-wide text-[var(--accent)]"> creativity </span> <span class="link text-sm text-white/80">
+View project
+</span> </div> </div> </a> </div> </div> </section> <section class="container page-section-tight"> <div class="section-shell surface card-lg"> <div class="section-header"> <div class="min-w-0"> <p class="kicker">Latest Build Logs</p> <h2 class="section-title mt-3">
+What I’ve been building recently
+</h2> <p class="muted mt-4 max-w-2xl body-md">
+The latest progress updates, experiments and learnings across my active projects.
+</p> </div> </div> <ul class="card-grid cols-3 mt-8"> <li class="list-none"> <a href="/projects/van/build-log/2026_04_08_cleaning" class="content-card surface interactive card block h-full"> <div class="content-card-inner"> <div class="flex flex-col gap-3"> <p class="meta-text"> 2026-04-06 </p> <h3 class="text-lg font-medium text-white"> Cleaning </h3> <p class="content-card-body muted text-sm leading-7"> Preparation for rust treatment. </p> </div> <div class="content-card-footer"> <span class="text-xs uppercase tracking-wide text-[var(--accent)]"> Van </span> <span class="link text-sm text-white/80">
+View log
+</span> </div> </div> </a> </li><li class="list-none"> <a href="/projects/van/build-log/2026_03_21_deconstruction" class="content-card surface interactive card block h-full"> <div class="content-card-inner"> <div class="flex flex-col gap-3"> <p class="meta-text"> 2026-03-21 </p> <h3 class="text-lg font-medium text-white"> Deconstruction </h3> <p class="content-card-body muted text-sm leading-7"> Preparing the van for durability and build up. </p> </div> <div class="content-card-footer"> <span class="text-xs uppercase tracking-wide text-[var(--accent)]"> Van </span> <span class="link text-sm text-white/80">
+View log
+</span> </div> </div> </a> </li><li class="list-none"> <a href="/projects/music/build-log/2025_12_out-to-space" class="content-card surface interactive card block h-full"> <div class="content-card-inner"> <div class="flex flex-col gap-3"> <p class="meta-text"> 2025-12-01 </p> <h3 class="text-lg font-medium text-white"> out-to-space </h3> <p class="content-card-body muted text-sm leading-7"> Out now on SoundCloud. </p> </div> <div class="content-card-footer"> <span class="text-xs uppercase tracking-wide text-[var(--accent)]"> Music </span> <span class="link text-sm text-white/80">
+View log
+</span> </div> </div> </a> </li> </ul> </div> </section> <section id="contact" class="container page-section"> <div class="surface card-lg"> <p class="kicker">Contact</p> <h2 class="section-title mt-3 max-w-2xl">
+Let’s connect and build something meaningful together.
+</h2> <p class="muted mt-4 max-w-2xl body-md">
+If you’re building something meaningful, looking for collaboration, or simply want to connect, feel free to reach out.
+</p> <div class="mt-6 flex flex-wrap gap-4"> <a href="https://linkedin.com/in/daniel-botsch-62b989374" target="_blank" rel="noreferrer" class="button button-primary">
+LinkedIn
+</a> </div> </div> </section>  </main> <footer class="container site-footer"> <div class="site-footer-inner"> <p>© 2026 Daniel Botsch. Built with intention.</p> </div> </footer> </body></html>
